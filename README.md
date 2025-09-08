@@ -1,46 +1,46 @@
 🌟 Yousef Admin Panel
-A modern Next.js + Tailwind v4 admin panel built with framer-motion, recharts, and lucide-react.  
+A modern Next.js + Tailwind v4 admin panel built with framer-motion, recharts, and lucide-react.  
 Fully responsive, themeable, and ready-to-use as a single component.
 
 📌 Version
 v1 – Initial stable release 🚀
 
 ✨ Features
-🌗 Light/Dark mode toggle  
+🌗 Light/Dark mode toggle  
 
-🎨 Theme customization (primary, accent, radius, shadow, etc.)  
+🎨 Theme customization (primary, accent, radius, shadow, etc.)  
 
-📊 Analytics charts with Recharts (Line & Bar)  
+📊 Analytics charts with Recharts (Line & Bar)  
 
-📑 Orders management: search, sort, add order, empty state  
+📑 Orders management: search, sort, add order, empty state  
 
-👥 Customers management: add, search, ban/unban  
+👥 Customers management: add, search, ban/unban  
 
-🔔 Notifications feed  
+🔔 Notifications feed  
 
-🎯 KPI cards (Sales, Orders, Users, Conversion)  
+🎯 KPI cards (Sales, Orders, Users, Conversion)  
 
-⚡ Animated sidebar with Lucide icons  
+⚡ Animated sidebar with Lucide icons  
 
-📱 Responsive design (desktop & mobile)  
+📱 Responsive design (desktop & mobile)  
 
-🪄 Smooth animations powered by framer-motion  
+🪄 Smooth animations powered by framer-motion  
 
 🛠 Tech Stack
-Next.js 15 (App Router)  
+Next.js 15 (App Router)  
 
-Tailwind CSS v4  
+Tailwind CSS v4  
 
-Framer Motion  
+Framer Motion  
 
-Recharts  
+Recharts  
 
-Lucide React  
+Lucide React  
 
 📦 Installation
 Clone the repository:
 
-git clone [https://github.com/](https://github.com/)<your-user>/<repo-name>.git
+git clone https://github.com/<your-user>/<repo-name>.git
 cd <repo-name>
 
 Install dependencies using your preferred package manager:
@@ -65,7 +65,7 @@ Simply import the AdminPanel component into your Next.js page. Make sure it's a 
 import AdminPanel from "@/components/AdminPanel";
 
 export default function Page() {
-  return <AdminPanel title="Yousef Admin" />;
+  return <AdminPanel title="Yousef Admin" />;
 }
 
 That’s it! 🎉 The panel comes with Dashboard, Orders, Customers, Analytics, and Settings out of the box.
@@ -80,9 +80,6 @@ Switch between light/dark mode anytime.
 Default themes are defined in defaultLightTheme and defaultDarkTheme.
 
 📸 Screenshots
-
-
-
 
 <img src="src/ScreenShots/sc1.png" alt="Screenshot 1" width="400"/>
 
@@ -105,11 +102,9 @@ Default themes are defined in defaultLightTheme and defaultDarkTheme.
 <img src="src/ScreenShots/sc10.png" alt="Screenshot 10" width="400"/>
 
 🚀 Deployment
-Deploy easily with Vercel:  
+Deploy easily with Vercel:  
 
 vercel
-
- 
 
 Or connect your GitHub repo directly.
 
@@ -117,7 +112,7 @@ Or connect your GitHub repo directly.
 MIT
 
 🤝 Contributing
-Pull requests are welcome!  
+Pull requests are welcome!  
 Follow conventional commits (feat:, fix:, chore:) when contributing.
 
 💡 Author
