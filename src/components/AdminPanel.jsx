@@ -40,75 +40,24 @@ import {
   Bar,
 } from "recharts";
 
-/* -------------------------------- THEME ---------------------------------- */
+/* -------------------------------- THEME (Unchanged) ---------------------------------- */
 const defaultLightTheme = {
-  surface: "#ffffff",
-  surfaceAlt: "#f8fafc",
-  surfaceSoft: "#f3f4f6",
-  border: "#e5e7eb",
-  text: "#0b1220",
-  textSoft: "#475569",
-  primary: "#3b82f6",
-  primaryText: "#ffffff",
-  accent: "#22c55e",
-  warn: "#f59e0b",
-  danger: "#ef4444",
-  radius: "16px",
-  shadow: "0 4px 16px 0 rgba(2,6,23,0.06)",
+  surface: "#ffffff", surfaceAlt: "#f8fafc", surfaceSoft: "#f3f4f6", border: "#e5e7eb", text: "#0b1220",
+  textSoft: "#475569", primary: "#3b82f6", primaryText: "#ffffff", accent: "#22c55e", warn: "#f59e0b",
+  danger: "#ef4444", radius: "16px", shadow: "0 4px 16px 0 rgba(2,6,23,0.06)",
 };
-
 const defaultDarkTheme = {
-  surface: "#0b1220",
-  surfaceAlt: "#0f172a",
-  surfaceSoft: "#111827",
-  border: "#1f2937",
-  text: "#e5e7eb",
-  textSoft: "#94a3b8",
-  primary: "#60a5fa",
-  primaryText: "#0b1220",
-  accent: "#22d3ee",
-  warn: "#f59e0b",
-  danger: "#f87171",
-  radius: "16px",
-  shadow: "0 6px 22px 0 rgba(0,0,0,0.35)",
+  surface: "#0b1220", surfaceAlt: "#0f172a", surfaceSoft: "#111827", border: "#1f2937", text: "#e5e7eb",
+  textSoft: "#94a3b8", primary: "#60a5fa", primaryText: "#0b1220", accent: "#22d3ee", warn: "#f59e0b",
+  danger: "#f87171", radius: "16px", shadow: "0 6px 22px 0 rgba(0,0,0,0.35)",
 };
-
 function applyTheme(vars) {
   const out = {};
   for (const [k, v] of Object.entries(vars)) out[`--${k}`] = String(v);
   return out;
 }
 
-/* ------------------------------ MOCK DATA -------------------------------- */
-const chartData = [
-  { name: "Jan", sales: 1200, users: 300 },
-  { name: "Feb", sales: 1800, users: 380 },
-  { name: "Mar", sales: 1500, users: 420 },
-  { name: "Apr", sales: 2200, users: 460 },
-  { name: "May", sales: 2800, users: 520 },
-  { name: "Jun", sales: 2500, users: 590 },
-  { name: "Jul", sales: 3200, users: 650 },
-];
-
-const initialOrders = [
-  { id: "ORD-1024", customer: "Elena M.", date: "2025-08-30", total: 129.9, status: "Paid" },
-  { id: "ORD-1025", customer: "John D.", date: "2025-08-31", total: 59.0, status: "Pending" },
-  { id: "ORD-1026", customer: "Arezoo K.", date: "2025-09-01", total: 349.0, status: "Paid" },
-  { id: "ORD-1027", customer: "Nima R.", date: "2025-09-02", total: 89.99, status: "Failed" },
-  { id: "ORD-1028", customer: "Sara H.", date: "2025-09-03", total: 210.0, status: "Paid" },
-  { id: "ORD-1029", customer: "Liam P.", date: "2025-09-04", total: 42.5, status: "Refunded" },
-  { id: "ORD-1030", customer: "Yousef S.", date: "2025-09-05", total: 640.0, status: "Paid" },
-];
-
-const initialCustomers = [
-  { id: "CUS-2001", name: "Elena M.", email: "elena@example.com", joined: "2025-07-21", status: "Active" },
-  { id: "CUS-2002", name: "John D.", email: "john@example.com", joined: "2025-08-02", status: "Active" },
-  { id: "CUS-2003", name: "Arezoo K.", email: "arezoo@example.com", joined: "2025-08-29", status: "Active" },
-  { id: "CUS-2004", name: "Nima R.", email: "nima@example.com", joined: "2025-09-01", status: "Banned" },
-  { id: "CUS-2005", name: "Sara H.", email: "sara@example.com", joined: "2025-09-03", status: "Active" },
-];
-
-/* ------------------------------ BADGES ----------------------------------- */
+/* ------------------------------ BADGES (Unchanged) ----------------------------------- */
 const StatusBadge = memo(function StatusBadge({ status }) {
   const map = {
     Paid: { bg: "bg-[var(--accent)]/15", text: "text-[var(--accent)]", border: "border-[var(--accent)]/30", Icon: CheckCircle2 },
@@ -127,8 +76,8 @@ const StatusBadge = memo(function StatusBadge({ status }) {
   );
 });
 
-/* --------------------------- SMALL UI HELPERS ---------------------------- */
-const SortBtn = memo(function SortBtn({ label, active, dir, onClick }) {
+/* --------------------------- SMALL UI HELPERS (Unchanged) ---------------------------- */
+const SortBtn = memo(function SortBtn({ label, active, dir, onClick }) { /* ... no changes ... */
   return (
     <button
       onClick={onClick}
@@ -148,7 +97,7 @@ const SortBtn = memo(function SortBtn({ label, active, dir, onClick }) {
   );
 });
 
-const SideLink = memo(function SideLink({ icon: Icon, label, active, onClick }) {
+const SideLink = memo(function SideLink({ icon: Icon, label, active, onClick }) { /* ... no changes ... */
   return (
     <button
       onClick={onClick}
@@ -173,16 +122,7 @@ const SideLink = memo(function SideLink({ icon: Icon, label, active, onClick }) 
   );
 });
 
-/*  Card: فقط وقتی grow=true باشه ارتفاع رو پر کنه (برای هم‌قدی دسکتاپ)  */
-const Card = memo(function Card({
-  title,
-  subtitle,
-  right,
-  children,
-  padded = true,
-  className = "",
-  grow = false,
-}) {
+const Card = memo(function Card({ title, subtitle, right, children, padded = true, className = "", grow = false }) { /* ... no changes ... */
   const shell = [
     "rounded-2xl border border-[var(--border)] bg-[var(--surface)]",
     grow ? "flex h-full flex-col" : "",
@@ -207,7 +147,7 @@ const Card = memo(function Card({
   );
 });
 
-const KpiCard = memo(function KpiCard({ title, value, delta, sub }) {
+const KpiCard = memo(function KpiCard({ title, value, delta, sub }) { /* ... no changes ... */
   return (
     <motion.div
       initial={{ y: 8, opacity: 0 }}
@@ -224,7 +164,7 @@ const KpiCard = memo(function KpiCard({ title, value, delta, sub }) {
   );
 });
 
-const EmptyState = memo(function EmptyState({ title="No data", subtitle="There is nothing to show yet.", action=null }) {
+const EmptyState = memo(function EmptyState({ title="No data", subtitle="There is nothing to show yet.", action=null }) { /* ... no changes ... */
   return (
     <div className="flex min-h-[160px] items-center justify-center">
       <div className="text-center">
@@ -236,9 +176,8 @@ const EmptyState = memo(function EmptyState({ title="No data", subtitle="There i
   );
 });
 
-/* ------------------------------- VIEWS ----------------------------------- */
-/* pagination helper */
-function usePagination(list, pageSize = 10) {
+/* ------------------------------- VIEWS (Unchanged structure, logic moved up) ----------------------------------- */
+function usePagination(list, pageSize = 10) { /* ... no changes ... */
   const [page, setPage] = useState(1);
   const total = list.length;
   const pages = Math.max(1, Math.ceil(total / pageSize));
@@ -250,7 +189,7 @@ function usePagination(list, pageSize = 10) {
   return { page, setPage, pages, slice, total };
 }
 
-function Pager({ page, pages, onChange }) {
+function Pager({ page, pages, onChange }) { /* ... no changes ... */
   if (pages <= 1) return null;
   return (
     <div className="flex items-center gap-2">
@@ -275,7 +214,8 @@ function Pager({ page, pages, onChange }) {
   );
 }
 
-function OrdersView({ orders, filtered, q, setQ, sortKey, sortDir, toggleSort, onAddClick }) {
+// NOTE: `filtered` is passed directly now. `orders` is removed.
+function OrdersView({ filtered, q, setQ, sortKey, sortDir, toggleSort, onAddClick }) {
   const [pageSize, setPageSize] = useState(10);
   const { page, setPage, pages, slice, total } = usePagination(filtered, pageSize);
 
@@ -324,17 +264,13 @@ function OrdersView({ orders, filtered, q, setQ, sortKey, sortDir, toggleSort, o
           </div>
         }
         padded={false}
-        /* grow={false}  ← جدول نباید قد بکشه */
       >
         <div className="overflow-x-auto">
           <table className="min-w-full text-left text-sm">
             <thead className="bg-[var(--surfaceSoft)]">
               <tr className="text-xs uppercase text-[var(--textSoft)]">
-                <th className="px-4 py-3">Order ID</th>
-                <th className="px-4 py-3">Customer</th>
-                <th className="px-4 py-3">Date</th>
-                <th className="px-4 py-3">Total</th>
-                <th className="px-4 py-3">Status</th>
+                <th className="px-4 py-3">Order ID</th><th className="px-4 py-3">Customer</th><th className="px-4 py-3">Date</th>
+                <th className="px-4 py-3">Total</th><th className="px-4 py-3">Status</th>
               </tr>
             </thead>
             <tbody>
@@ -351,10 +287,8 @@ function OrdersView({ orders, filtered, q, setQ, sortKey, sortDir, toggleSort, o
               ) : (
                 slice.map((o) => (
                   <tr key={o.id} className="border-t border-[var(--border)] last:border-b">
-                    <td className="px-4 py-3 font-mono">{o.id}</td>
-                    <td className="px-4 py-3">{o.customer}</td>
-                    <td className="px-4 py-3">{o.date}</td>
-                    <td className="px-4 py-3">${o.total.toFixed(2)}</td>
+                    <td className="px-4 py-3 font-mono">{o.id}</td><td className="px-4 py-3">{o.customer}</td>
+                    <td className="px-4 py-3">{o.date}</td><td className="px-4 py-3">${o.total.toFixed(2)}</td>
                     <td className="px-4 py-3"><StatusBadge status={o.status} /></td>
                   </tr>
                 ))
@@ -373,7 +307,8 @@ function OrdersView({ orders, filtered, q, setQ, sortKey, sortDir, toggleSort, o
   );
 }
 
-function CustomersView({ customers, setCustomers }) {
+// NOTE: Receives `customers` and handlers as props now
+function CustomersView({ customers = [], onAddCustomer, onUpdateCustomer }) {
   const [q, setQ] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const deferredQ = useDeferredValue(q);
@@ -385,14 +320,14 @@ function CustomersView({ customers, setCustomers }) {
     );
   }, [customers, deferredQ]);
 
-  const addCustomer = (e) => {
+  const handleAddSubmit = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
-    const name = String(form.get("name") || "");
-    const email = String(form.get("email") || "");
-    const id = `CUS-${Math.floor(Math.random()*9000+1000)}`;
-    const joined = new Date().toISOString().slice(0,10);
-    setCustomers(prev => [{ id, name, email, joined, status: "Active" }, ...prev]);
+    const newCustomer = {
+      name: String(form.get("name") || ""),
+      email: String(form.get("email") || ""),
+    };
+    onAddCustomer(newCustomer); // Call prop handler
     setModalOpen(false);
   };
 
@@ -406,40 +341,29 @@ function CustomersView({ customers, setCustomers }) {
         <div className="flex items-center gap-2">
           <div className="relative">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 opacity-60" />
-            <input
-              value={q}
-              onChange={(e) => setQ(e.target.value)}
-              placeholder="Search customers..."
-              className="w-64 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-9 py-2 text-sm outline-none transition focus:border-[var(--primary)]"
-            />
+            <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search customers..."
+              className="w-64 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-9 py-2 text-sm outline-none transition focus:border-[var(--primary)]" />
           </div>
-          <button
-            onClick={() => setModalOpen(true)}
+          <button onClick={() => setModalOpen(true)}
             className="inline-flex items-center gap-2 rounded-xl bg-[var(--primary)] px-3 py-2 text-sm font-medium text-[var(--primaryText)] hover:opacity-90"
           >
             <Plus className="h-4 w-4" /> Add Customer
           </button>
         </div>
       </div>
-
       <Card title="Customer List" padded={false}>
         <div className="overflow-x-auto">
           <table className="min-w-full text-left text-sm">
             <thead className="bg-[var(--surfaceSoft)]">
               <tr className="text-xs uppercase text-[var(--textSoft)]">
-                <th className="px-4 py-3">ID</th>
-                <th className="px-4 py-3">Name</th>
-                <th className="px-4 py-3">Email</th>
-                <th className="px-4 py-3">Joined</th>
-                <th className="px-4 py-3">Status</th>
-                <th className="px-4 py-3">Action</th>
+                <th className="px-4 py-3">ID</th><th className="px-4 py-3">Name</th><th className="px-4 py-3">Email</th>
+                <th className="px-4 py-3">Joined</th><th className="px-4 py-3">Status</th><th className="px-4 py-3">Action</th>
               </tr>
             </thead>
             <tbody>
               {filtered.map((c) => (
                 <tr key={c.id} className="border-t border-[var(--border)] last:border-b">
-                  <td className="px-4 py-3 font-mono">{c.id}</td>
-                  <td className="px-4 py-3">{c.name}</td>
+                  <td className="px-4 py-3 font-mono">{c.id}</td><td className="px-4 py-3">{c.name}</td>
                   <td className="px-4 py-3">
                     <a className="inline-flex items-center gap-1 hover:underline" href={`mailto:${c.email}`}>
                       <Mail className="h-3.5 w-3.5" />{c.email}
@@ -450,9 +374,7 @@ function CustomersView({ customers, setCustomers }) {
                   <td className="px-4 py-3">
                     <button
                       className="rounded-lg border border-[var(--border)] px-2 py-1 text-xs hover:bg-[var(--surfaceSoft)]"
-                      onClick={() =>
-                        setCustomers(prev => prev.map(x => x.id === c.id ? { ...x, status: x.status === "Active" ? "Banned" : "Active" } : x))
-                      }
+                      onClick={() => onUpdateCustomer(c.id, { status: c.status === "Active" ? "Banned" : "Active" })} // Call prop handler
                     >
                       {c.status === "Active" ? "Ban" : "Unban"}
                     </button>
@@ -463,29 +385,21 @@ function CustomersView({ customers, setCustomers }) {
           </table>
         </div>
       </Card>
-
-      {/* Modal */}
       <AnimatePresence>
         {modalOpen && (
-          <motion.div
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 grid place-items-center bg-black/40 p-4"
-            onClick={() => setModalOpen(false)}
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 grid place-items-center bg-black/40 p-4" onClick={() => setModalOpen(false)}
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
+            <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", stiffness: 220, damping: 20 }}
               className="w-full max-w-md rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4"
-              onClick={(e) => e.stopPropagation()}
-              style={{ boxShadow: "var(--shadow)" }}
+              onClick={(e) => e.stopPropagation()} style={{ boxShadow: "var(--shadow)" }}
             >
               <div className="mb-3 flex items-center justify-between">
                 <h3 className="text-base font-semibold">Add Customer</h3>
-                <button className="rounded-xl p-2 hover:bg-[var(--surfaceSoft)]" onClick={() => setModalOpen(false)} aria-label="Close Modal">
-                  <X className="h-5 w-5" />
-                </button>
+                <button className="rounded-xl p-2 hover:bg-[var(--surfaceSoft)]" onClick={() => setModalOpen(false)} aria-label="Close Modal"><X className="h-5 w-5" /></button>
               </div>
-              <form className="space-y-3" onSubmit={addCustomer}>
+              <form className="space-y-3" onSubmit={handleAddSubmit}>
                 <div>
                   <label className="mb-1 block text-xs text-[var(--textSoft)]">Name</label>
                   <input name="name" required className="w-full rounded-xl border border-[var(--border)] bg-[var(--surfaceAlt)] px-3 py-2 text-sm outline-none focus:border-[var(--primary)]" />
@@ -508,8 +422,9 @@ function CustomersView({ customers, setCustomers }) {
   );
 }
 
-function AnalyticsView() {
-  const stacked = chartData.map(d => ({ ...d, returns: Math.max(0, Math.round(d.sales * 0.15)) }));
+// NOTE: receives chartData from props
+function AnalyticsView({ chartData = [] }) {
+  const stacked = chartData.map(d => ({ ...d, returns: Math.max(0, Math.round((d.sales || 0) * 0.15)) }));
   return (
     <>
       <div className="mb-2">
@@ -524,8 +439,7 @@ function AnalyticsView() {
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
                 <XAxis dataKey="name" tick={{ fill: 'var(--textSoft)', fontSize: 12 }} stroke="var(--border)" />
                 <YAxis tick={{ fill: 'var(--textSoft)', fontSize: 12 }} stroke="var(--border)" />
-                <Tooltip />
-                <Legend wrapperStyle={{ color: 'var(--textSoft)' }} />
+                <Tooltip /> <Legend wrapperStyle={{ color: 'var(--textSoft)' }} />
                 <Line type="monotone" dataKey="sales" stroke="var(--primary)" strokeWidth={2} dot={{ r: 0 }} activeDot={{ r: 4 }} />
                 <Line type="monotone" dataKey="users" stroke="var(--accent)" strokeWidth={2} dot={{ r: 0 }} activeDot={{ r: 4 }} />
               </LineChart>
@@ -539,8 +453,7 @@ function AnalyticsView() {
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
                 <XAxis dataKey="name" tick={{ fill: 'var(--textSoft)', fontSize: 12 }} stroke="var(--border)" />
                 <YAxis tick={{ fill: 'var(--textSoft)', fontSize: 12 }} stroke="var(--border)" />
-                <Tooltip />
-                <Legend wrapperStyle={{ color: 'var(--textSoft)' }} />
+                <Tooltip /> <Legend wrapperStyle={{ color: 'var(--textSoft)' }} />
                 <Bar dataKey="sales" stackId="a" fill="var(--primary)" />
                 <Bar dataKey="returns" stackId="a" fill="var(--danger)" />
               </BarChart>
@@ -552,8 +465,7 @@ function AnalyticsView() {
   );
 }
 
-/* ---------- Settings (color pickers stay open during drag) --------------- */
-function SettingsView({ themeState, setThemeState, darkThemeState, setDarkThemeState, rootRef }) {
+function SettingsView({ themeState, setThemeState, darkThemeState, setDarkThemeState, rootRef }) { /* ... no changes ... */
   const [localLight, setLocalLight] = useState(themeState);
   const [localDark, setLocalDark] = useState(darkThemeState);
 
@@ -596,18 +508,8 @@ function SettingsView({ themeState, setThemeState, darkThemeState, setDarkThemeS
     return (
       <InputRow label={label}>
         <div className="flex items-center gap-2">
-          <input
-            type="color"
-            value={val}
-            onInput={(e) => { const v = e.currentTarget.value; livePreview(varKey, v); setVal(v); }}
-            onChange={(e) => { const v = e.currentTarget.value; commit(mode, varKey, v); }}
-          />
-          <input
-            className="w-28 rounded-lg border border-[var(--border)] bg-[var(--surface)] px-2 py-1 text-xs"
-            value={val}
-            onInput={(e) => { const v = e.currentTarget.value; livePreview(varKey, v); setVal(v); }}
-            onChange={(e) => { const v = e.currentTarget.value; commit(mode, varKey, v); }}
-          />
+          <input type="color" value={val} onInput={(e) => { const v = e.currentTarget.value; livePreview(varKey, v); setVal(v); }} onChange={(e) => { const v = e.currentTarget.value; commit(mode, varKey, v); }} />
+          <input className="w-28 rounded-lg border border-[var(--border)] bg-[var(--surface)] px-2 py-1 text-xs" value={val} onInput={(e) => { const v = e.currentTarget.value; livePreview(varKey, v); setVal(v); }} onChange={(e) => { const v = e.currentTarget.value; commit(mode, varKey, v); }} />
           <span className="inline-block h-5 w-5 rounded-lg border border-[var(--border)]" style={{ background: val }} />
         </div>
       </InputRow>
@@ -620,12 +522,7 @@ function SettingsView({ themeState, setThemeState, darkThemeState, setDarkThemeS
     return (
       <InputRow label={label}>
         <div className="flex items-center gap-2">
-          <input
-            type="range" min={min} max={max}
-            value={val}
-            onInput={(e) => { const v = parseInt(e.currentTarget.value); livePreview(varKey, `${v}px`); setVal(v); }}
-            onChange={(e) => { const v = parseInt(e.currentTarget.value); commit(mode, varKey, `${v}px`); }}
-          />
+          <input type="range" min={min} max={max} value={val} onInput={(e) => { const v = parseInt(e.currentTarget.value); livePreview(varKey, `${v}px`); setVal(v); }} onChange={(e) => { const v = parseInt(e.currentTarget.value); commit(mode, varKey, `${v}px`); }} />
           <div className="w-10 text-right text-xs">{val}px</div>
         </div>
       </InputRow>
@@ -635,11 +532,7 @@ function SettingsView({ themeState, setThemeState, darkThemeState, setDarkThemeS
   const SelectField = memo(function SelectField({ mode, label, varKey, value, options }) {
     return (
       <InputRow label={label}>
-        <select
-          value={value}
-          onChange={(e) => { commit(mode, varKey, e.target.value); livePreview(varKey, e.target.value); }}
-          className="rounded-lg border border-[var(--border)] bg-[var(--surface)] px-2 py-1 text-sm"
-        >
+        <select value={value} onChange={(e) => { commit(mode, varKey, e.target.value); livePreview(varKey, e.target.value); }} className="rounded-lg border border-[var(--border)] bg-[var(--surface)] px-2 py-1 text-sm">
           {options.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
         </select>
       </InputRow>
@@ -652,7 +545,6 @@ function SettingsView({ themeState, setThemeState, darkThemeState, setDarkThemeS
         <h1 className="text-xl font-semibold tracking-tight">Settings</h1>
         <p className="text-sm text-[var(--textSoft)]">Customize theme and appearance (live preview)</p>
       </div>
-
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <Card title="Light Theme">
           <div className="space-y-3">
@@ -661,14 +553,9 @@ function SettingsView({ themeState, setThemeState, darkThemeState, setDarkThemeS
             <ColorField mode="light" label="Surface" varKey="surface" value={localLight.surface} />
             <ColorField mode="light" label="Text" varKey="text" value={localLight.text} />
             <RangeField  mode="light" label="Radius" varKey="radius" value={localLight.radius} />
-            <SelectField mode="light" label="Shadow" varKey="shadow" value={localLight.shadow} options={[
-              { label:"Soft", value:"0 4px 16px 0 rgba(2,6,23,0.06)" },
-              { label:"Medium", value:"0 8px 24px rgba(0,0,0,0.08)" },
-              { label:"Strong", value:"0 12px 32px rgba(0,0,0,0.18)" },
-            ]} />
+            <SelectField mode="light" label="Shadow" varKey="shadow" value={localLight.shadow} options={[ { label:"Soft", value:"0 4px 16px 0 rgba(2,6,23,0.06)" }, { label:"Medium", value:"0 8px 24px rgba(0,0,0,0.08)" }, { label:"Strong", value:"0 12px 32px rgba(0,0,0,0.18)" }, ]} />
           </div>
         </Card>
-
         <Card title="Dark Theme">
           <div className="space-y-3">
             <ColorField mode="dark" label="Primary" varKey="primary" value={localDark.primary} />
@@ -676,15 +563,10 @@ function SettingsView({ themeState, setThemeState, darkThemeState, setDarkThemeS
             <ColorField mode="dark" label="Surface" varKey="surface" value={localDark.surface} />
             <ColorField mode="dark" label="Text" varKey="text" value={localDark.text} />
             <RangeField  mode="dark" label="Radius" varKey="radius" value={localDark.radius} />
-            <SelectField mode="dark" label="Shadow" varKey="shadow" value={localDark.shadow} options={[
-              { label:"Soft", value:"0 6px 22px 0 rgba(0,0,0,0.35)" },
-              { label:"Medium", value:"0 10px 26px rgba(0,0,0,0.45)" },
-              { label:"Strong", value:"0 14px 34px rgba(0,0,0,0.6)" },
-            ]} />
+            <SelectField mode="dark" label="Shadow" varKey="shadow" value={localDark.shadow} options={[ { label:"Soft", value:"0 6px 22px 0 rgba(0,0,0,0.35)" }, { label:"Medium", value:"0 10px 26px rgba(0,0,0,0.45)" }, { label:"Strong", value:"0 14px 34px rgba(0,0,0,0.6)" }, ]} />
           </div>
         </Card>
       </div>
-
       <div className="flex items-center gap-2">
         <button onClick={persist} className="rounded-xl bg-[var(--primary)] px-3 py-2 text-sm font-medium text-[var(--primaryText)] hover:opacity-90">Apply</button>
         <button onClick={reset} className="rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-sm hover:bg-[var(--surfaceSoft)]">Reset</button>
@@ -693,27 +575,34 @@ function SettingsView({ themeState, setThemeState, darkThemeState, setDarkThemeS
   );
 }
 
-/* ------------------------------- MAIN ------------------------------------ */
+/* ------------------------------- MAIN (Refactored) ------------------------------------ */
 export default function AdminPanel({
-  theme = defaultLightTheme,
-  darkTheme = defaultDarkTheme,
   title = "Yousef Admin",
+  theme = {},
+  darkTheme = {},
+  // Data props
+  orders = [],
+  customers = [],
+  chartData = [],
+  kpiData = { sales: { value: "N/A", delta: "", sub: "" }, orders: { value: "N/A", delta: "", sub: "" }, users: { value: "N/A", delta: "", sub: "" }, conversion: { value: "N/A", delta: "", sub: "" } },
+  // Event handlers
+  onAddOrder = () => console.warn("onAddOrder handler not provided"),
+  onAddCustomer = () => console.warn("onAddCustomer handler not provided"),
+  onUpdateCustomer = () => console.warn("onUpdateCustomer handler not provided"),
 }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [dark, setDark] = useState(false);
-  const [section, setSection] = useState("Dashboard"); // Dashboard, Orders, Customers, Analytics, Settings
+  const [section, setSection] = useState("Dashboard");
   const [q, setQ] = useState("");
-  const [orders, setOrders] = useState(initialOrders);
-  const [customers, setCustomers] = useState(initialCustomers);
   const [sortKey, setSortKey] = useState("date");
   const [sortDir, setSortDir] = useState("desc");
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false); // For "Add Order" modal
   const [themeState, setThemeState] = useState({ ...defaultLightTheme, ...theme });
   const [darkThemeState, setDarkThemeState] = useState({ ...defaultDarkTheme, ...darkTheme });
 
   const rootRef = useRef(null);
 
-  useEffect(() => {
+  useEffect(() => { /* ... theme logic unchanged ... */
     const stored = localStorage.getItem("admin-dark");
     if (stored) setDark(stored === "1");
   }, []);
@@ -727,13 +616,10 @@ export default function AdminPanel({
   const vars = dark ? applyTheme(darkThemeState) : applyTheme(themeState);
   const deferredQ = useDeferredValue(q);
 
-  const filtered = useMemo(() => {
+  const filteredOrders = useMemo(() => {
     const term = deferredQ.trim().toLowerCase();
     let list = orders.filter(
-      (o) =>
-        o.id.toLowerCase().includes(term) ||
-        o.customer.toLowerCase().includes(term) ||
-        o.status.toLowerCase().includes(term)
+      (o) => o.id.toLowerCase().includes(term) || o.customer.toLowerCase().includes(term) || o.status.toLowerCase().includes(term)
     );
     list.sort((a, b) => {
       const dir = sortDir === "asc" ? 1 : -1;
@@ -744,15 +630,15 @@ export default function AdminPanel({
     return list;
   }, [orders, deferredQ, sortKey, sortDir]);
 
-  const addMockOrder = (e) => {
+  const handleAddOrderSubmit = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
-    const customer = String(form.get("customer") || "");
-    const total = Number(form.get("total"));
-    const status = String(form.get("status") || "Pending");
-    const id = `ORD-${Math.floor(Math.random() * 9000 + 1000)}`;
-    const date = new Date().toISOString().slice(0, 10);
-    setOrders((prev) => [{ id, customer, total, status, date }, ...prev ]);
+    const newOrder = {
+      customer: String(form.get("customer") || ""),
+      total: Number(form.get("total")),
+      status: String(form.get("status") || "Pending"),
+    };
+    onAddOrder(newOrder); // Use the prop handler
     setModalOpen(false);
   };
 
@@ -768,75 +654,36 @@ export default function AdminPanel({
   }, []);
 
   const nav = [
-    { key: "Dashboard", icon: LayoutDashboard },
-    { key: "Orders", icon: ShoppingCart },
-    { key: "Customers", icon: Users },
-    { key: "Analytics", icon: BarChart3 },
-    { key: "Settings", icon: SettingsIcon },
+    { key: "Dashboard", icon: LayoutDashboard }, { key: "Orders", icon: ShoppingCart }, { key: "Customers", icon: Users },
+    { key: "Analytics", icon: BarChart3 }, { key: "Settings", icon: SettingsIcon },
   ];
 
   return (
-    <div
-      ref={rootRef}
-      className="min-h-screen bg-[var(--surfaceAlt)] text-[var(--text)]"
-      style={vars}
-    >
+    <div ref={rootRef} className="min-h-screen bg-[var(--surfaceAlt)] text-[var(--text)]" style={vars}>
       {/* Top Bar */}
-      <header
-        className="sticky top-0 z-40 border-b border-[var(--border)] bg-[color:oklch(from_var(--surface)/0.85)] backdrop-blur-md"
-        style={{ boxShadow: "0 1px 0 0 var(--border)" }}
-      >
+      <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[color:oklch(from_var(--surface)/0.85)] backdrop-blur-md"
+        style={{ boxShadow: "0 1px 0 0 var(--border)" }}>
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
-            <button
-              className="rounded-xl p-2 hover:bg-[var(--surfaceSoft)] lg:hidden"
-              onClick={() => setSidebarOpen(true)}
-              aria-label="Open Sidebar"
-            >
-              <Menu className="h-5 w-5" />
-            </button>
-            <div className="flex items-center gap-2">
-              <LayoutDashboard className="h-5 w-5" />
-              <span className="font-semibold">{title}</span>
-            </div>
+            <button className="rounded-xl p-2 hover:bg-[var(--surfaceSoft)] lg:hidden" onClick={() => setSidebarOpen(true)} aria-label="Open Sidebar"><Menu className="h-5 w-5" /></button>
+            <div className="flex items-center gap-2"><LayoutDashboard className="h-5 w-5" /><span className="font-semibold">{title}</span></div>
           </div>
-
           <div className="hidden items-center gap-2 lg:flex">
-            <button className="rounded-xl p-2 hover:bg-[var(--surfaceSoft)]" aria-label="Notifications">
-              <Bell className="h-5 w-5" />
-            </button>
-            <button
-              onClick={() => setDark((d) => !d)}
-              className="rounded-xl p-2 hover:bg-[var(--surfaceSoft)]"
-              aria-label="Toggle Theme"
-              title={dark ? "Switch to light" : "Switch to dark"}
-            >
+            <button className="rounded-xl p-2 hover:bg-[var(--surfaceSoft)]" aria-label="Notifications"><Bell className="h-5 w-5" /></button>
+            <button onClick={() => setDark((d) => !d)} className="rounded-xl p-2 hover:bg-[var(--surfaceSoft)]" aria-label="Toggle Theme" title={dark ? "Switch to light" : "Switch to dark"}>
               {dark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </button>
-            <button className="rounded-xl p-2 hover:bg-[var(--surfaceSoft)]" aria-label="Logout">
-              <LogOut className="h-5 w-5" />
-            </button>
+            <button className="rounded-xl p-2 hover:bg-[var(--surfaceSoft)]" aria-label="Logout"><LogOut className="h-5 w-5" /></button>
           </div>
         </div>
       </header>
 
-      {/* Shell (بدون grow) */}
+      {/* Shell */}
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-6 lg:grid-cols-[260px_1fr]">
         {/* Sidebar */}
-        <aside
-          className="hidden h-fit rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-3 lg:block"
-          style={{ boxShadow: "var(--shadow)" }}
-        >
+        <aside className="hidden h-fit rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-3 lg:block" style={{ boxShadow: "var(--shadow)" }}>
           <nav className="space-y-1">
-            {nav.map((item) => (
-              <SideLink
-                key={item.key}
-                icon={item.icon}
-                label={item.key}
-                active={section === item.key}
-                onClick={() => setSection(item.key)}
-              />
-            ))}
+            {nav.map((item) => <SideLink key={item.key} icon={item.icon} label={item.key} active={section === item.key} onClick={() => setSection(item.key)} />)}
           </nav>
         </aside>
 
@@ -844,31 +691,24 @@ export default function AdminPanel({
         <main className="space-y-4">
           {section === "Dashboard" && (
             <>
-              {/* Quick */}
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
                   <h1 className="text-xl font-semibold tracking-tight">Dashboard Overview</h1>
                   <p className="text-sm text-[var(--textSoft)]">Snapshot of sales, users, and recent orders</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => setModalOpen(true)}
-                    className="inline-flex items-center gap-2 rounded-xl bg-[var(--primary)] px-3 py-2 text-sm font-medium text-[var(--primaryText)] shadow-sm hover:opacity-90 active:scale-[0.98]"
-                  >
+                  <button onClick={() => setModalOpen(true)}
+                    className="inline-flex items-center gap-2 rounded-xl bg-[var(--primary)] px-3 py-2 text-sm font-medium text-[var(--primaryText)] shadow-sm hover:opacity-90 active:scale-[0.98]">
                     <Plus className="h-4 w-4" /> Add Order
                   </button>
                 </div>
               </div>
-
-              {/* KPI */}
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-                <KpiCard title="Total Sales" value="$12,480" delta="↑ 12%" sub="vs last month" />
-                <KpiCard title="Orders" value={`${orders.length}`} delta="↑ 5%" sub="in the last 30 days" />
-                <KpiCard title="Active Users" value="650" delta="↑ 8%" sub="currently online" />
-                <KpiCard title="Conversion" value="2.6%" delta="↑ 0.4%" sub="store average" />
+                <KpiCard title="Total Sales" value={kpiData.sales.value} delta={kpiData.sales.delta} sub={kpiData.sales.sub} />
+                <KpiCard title="Orders" value={kpiData.orders.value} delta={kpiData.orders.delta} sub={kpiData.orders.sub} />
+                <KpiCard title="Active Users" value={kpiData.users.value} delta={kpiData.users.delta} sub={kpiData.users.sub} />
+                <KpiCard title="Conversion" value={kpiData.conversion.value} delta={kpiData.conversion.delta} sub={kpiData.conversion.sub} />
               </div>
-
-              {/* Charts & Feed — اینجا grow=true تا دو کارت هم‌قد بشن */}
               <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
                 <Card title="Sales vs Users" subtitle="Last 7 months" className="lg:col-span-2" grow>
                   <div className="h-[320px] lg:h-[360px]">
@@ -877,53 +717,36 @@ export default function AdminPanel({
                         <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
                         <XAxis dataKey="name" tick={{ fill: 'var(--textSoft)', fontSize: 12 }} stroke="var(--border)" />
                         <YAxis tick={{ fill: 'var(--textSoft)', fontSize: 12 }} stroke="var(--border)" />
-                        <Tooltip />
-                        <Legend wrapperStyle={{ color: 'var(--textSoft)' }} />
+                        <Tooltip /> <Legend wrapperStyle={{ color: 'var(--textSoft)' }} />
                         <Line type="monotone" dataKey="sales" stroke="var(--primary)" strokeWidth={2} dot={{ r: 0 }} activeDot={{ r: 4 }} />
                         <Line type="monotone" dataKey="users" stroke="var(--accent)" strokeWidth={2} dot={{ r: 0 }} activeDot={{ r: 4 }} />
                       </LineChart>
                     </ResponsiveContainer>
                   </div>
                 </Card>
-
                 <Card title="Notifications" className="lg:col-span-1" grow>
                   <ul className="flex max-h-[360px] flex-col gap-3 overflow-y-auto pr-1 [scrollbar-width:thin]">
-                    <li className="rounded-xl border border-[var(--border)] bg-[var(--surfaceAlt)] p-3 shadow-sm">
-                      New user <b>sam.dev</b> signed up
-                    </li>
-                    <li className="rounded-xl border border-[var(--border)] bg-[var(--surfaceAlt)] p-3 shadow-sm">
-                      Payment refunded for <b>ORD-1029</b>
-                    </li>
-                    <li className="rounded-xl border border-[var(--border)] bg-[var(--surfaceAlt)] p-3 shadow-sm">
-                      Server usage normal
-                    </li>
+                    <li className="rounded-xl border border-[var(--border)] bg-[var(--surfaceAlt)] p-3 shadow-sm">New user <b>sam.dev</b> signed up</li>
+                    <li className="rounded-xl border border-[var(--border)] bg-[var(--surfaceAlt)] p-3 shadow-sm">Payment refunded for <b>ORD-1029</b></li>
+                    <li className="rounded-xl border border-[var(--border)] bg-[var(--surfaceAlt)] p-3 shadow-sm">Server usage normal</li>
                   </ul>
                 </Card>
               </div>
-
-              {/* Recent Orders — بدون grow تا به اندازهٔ محتوا باشه */}
               <Card title="Recent Orders" padded={false}>
                 <div className="overflow-x-auto">
                   <table className="min-w-full text-left text-sm">
-                    <thead className="bg-[var(--surfaceSoft)]">
-                      <tr className="text-xs uppercase text-[var(--textSoft)]">
-                        <th className="px-4 py-3">Order ID</th>
-                        <th className="px-4 py-3">Customer</th>
-                        <th className="px-4 py-3">Date</th>
-                        <th className="px-4 py-3">Total</th>
-                        <th className="px-4 py-3">Status</th>
-                      </tr>
-                    </thead>
+                    <thead className="bg-[var(--surfaceSoft)]"><tr className="text-xs uppercase text-[var(--textSoft)]">
+                        <th className="px-4 py-3">Order ID</th><th className="px-4 py-3">Customer</th><th className="px-4 py-3">Date</th>
+                        <th className="px-4 py-3">Total</th><th className="px-4 py-3">Status</th>
+                    </tr></thead>
                     <tbody>
                       {orders.length === 0 ? (
                         <tr><td colSpan={5} className="px-4 py-6"><EmptyState title="No recent orders" subtitle="You haven't added any orders yet." /></td></tr>
                       ) : (
                         orders.slice(0, 8).map((o) => (
                           <tr key={o.id} className="border-t border-[var(--border)] last:border-b">
-                            <td className="px-4 py-3 font-mono">{o.id}</td>
-                            <td className="px-4 py-3">{o.customer}</td>
-                            <td className="px-4 py-3">{o.date}</td>
-                            <td className="px-4 py-3">${o.total.toFixed(2)}</td>
+                            <td className="px-4 py-3 font-mono">{o.id}</td><td className="px-4 py-3">{o.customer}</td>
+                            <td className="px-4 py-3">{o.date}</td><td className="px-4 py-3">${o.total.toFixed(2)}</td>
                             <td className="px-4 py-3"><StatusBadge status={o.status} /></td>
                           </tr>
                         ))
@@ -935,134 +758,49 @@ export default function AdminPanel({
             </>
           )}
 
-          {section === "Orders" && (
-            <OrdersView
-              orders={orders}
-              filtered={filtered}
-              q={q}
-              setQ={setQ}
-              sortKey={sortKey}
-              sortDir={sortDir}
-              toggleSort={toggleSort}
-              onAddClick={() => setModalOpen(true)}
-            />
-          )}
-
-          {section === "Customers" && (
-            <CustomersView customers={customers} setCustomers={setCustomers} />
-          )}
-
-          {section === "Analytics" && <AnalyticsView />}
-
-          {section === "Settings" && (
-            <SettingsView
-              themeState={themeState}
-              setThemeState={setThemeState}
-              darkThemeState={darkThemeState}
-              setDarkThemeState={setDarkThemeState}
-              rootRef={rootRef}
-            />
-          )}
+          {section === "Orders" && (<OrdersView filtered={filteredOrders} q={q} setQ={setQ} sortKey={sortKey} sortDir={sortDir} toggleSort={toggleSort} onAddClick={() => setModalOpen(true)} />)}
+          {section === "Customers" && (<CustomersView customers={customers} onAddCustomer={onAddCustomer} onUpdateCustomer={onUpdateCustomer} />)}
+          {section === "Analytics" && <AnalyticsView chartData={chartData} />}
+          {section === "Settings" && (<SettingsView themeState={themeState} setThemeState={setThemeState} darkThemeState={darkThemeState} setDarkThemeState={setDarkThemeState} rootRef={rootRef} />)}
         </main>
       </div>
 
       {/* Sidebar - Mobile */}
-      <AnimatePresence>
-        {sidebarOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/40 lg:hidden"
-            onClick={() => setSidebarOpen(false)}
-          >
-            <motion.aside
-              initial={{ x: -300 }}
-              animate={{ x: 0 }}
-              exit={{ x: -300 }}
-              transition={{ type: "spring", stiffness: 260, damping: 22 }}
+      <AnimatePresence>{sidebarOpen && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 bg-black/40 lg:hidden" onClick={() => setSidebarOpen(false)}>
+            <motion.aside initial={{ x: -300 }} animate={{ x: 0 }} exit={{ x: -300 }} transition={{ type: "spring", stiffness: 260, damping: 22 }}
               className="absolute left-0 top-0 h-full w-72 border-r border-[var(--border)] bg-[var(--surface)] p-4 text-[var(--text)]"
-              onClick={(e) => e.stopPropagation()}
-              style={{ boxShadow: "var(--shadow)" }}
-            >
+              onClick={(e) => e.stopPropagation()} style={{ boxShadow: "var(--shadow)" }}>
               <div className="mb-4 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <LayoutDashboard className="h-5 w-5" />
-                  <span className="font-semibold">{title}</span>
-                </div>
-                <button className="rounded-xl p-2 hover:bg-[var(--surfaceSoft)]" onClick={() => setSidebarOpen(false)} aria-label="Close Sidebar">
-                  <X className="h-5 w-5" />
-                </button>
+                <div className="flex items-center gap-2"><LayoutDashboard className="h-5 w-5" /><span className="font-semibold">{title}</span></div>
+                <button className="rounded-xl p-2 hover:bg-[var(--surfaceSoft)]" onClick={() => setSidebarOpen(false)} aria-label="Close Sidebar"><X className="h-5 w-5" /></button>
               </div>
               <nav className="space-y-1">
-                {nav.map((item) => (
-                  <SideLink
-                    key={item.key}
-                    icon={item.icon}
-                    label={item.key}
-                    active={section === item.key}
-                    onClick={() => { setSection(item.key); setSidebarOpen(false); }}
-                  />
-                ))}
+                {nav.map((item) => (<SideLink key={item.key} icon={item.icon} label={item.key} active={section === item.key} onClick={() => { setSection(item.key); setSidebarOpen(false); }} />))}
               </nav>
             </motion.aside>
           </motion.div>
-        )}
-      </AnimatePresence>
+      )}</AnimatePresence>
 
       {/* Add Order Modal (global) */}
-      <AnimatePresence>
-        {modalOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 grid place-items-center bg-black/40 p-4"
-            onClick={() => setModalOpen(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+      <AnimatePresence>{modalOpen && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 grid place-items-center bg-black/40 p-4" onClick={() => setModalOpen(false)}>
+            <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", stiffness: 220, damping: 20 }}
-              className="w-full max-w-md rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4"
-              onClick={(e) => e.stopPropagation()}
-              style={{ boxShadow: "var(--shadow)" }}
-            >
+              className="w-full max-w-md rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4" onClick={(e) => e.stopPropagation()} style={{ boxShadow: "var(--shadow)" }}>
               <div className="mb-3 flex items-center justify-between">
                 <h3 className="text-base font-semibold">Add Order</h3>
-                <button className="rounded-xl p-2 hover:bg-[var(--surfaceSoft)]" onClick={() => setModalOpen(false)} aria-label="Close Modal">
-                  <X className="h-5 w-5" />
-                </button>
+                <button className="rounded-xl p-2 hover:bg-[var(--surfaceSoft)]" onClick={() => setModalOpen(false)} aria-label="Close Modal"><X className="h-5 w-5" /></button>
               </div>
-              <form className="space-y-3" onSubmit={addMockOrder}>
-                <div>
-                  <label className="mb-1 block text-xs text-[var(--textSoft)]">Customer</label>
-                  <input name="customer" required className="w-full rounded-xl border border-[var(--border)] bg-[var(--surfaceAlt)] px-3 py-2 text-sm outline-none focus:border-[var(--primary)]" />
-                </div>
-                <div>
-                  <label className="mb-1 block text-xs text-[var(--textSoft)]">Total (USD)</label>
-                  <input type="number" step="0.01" name="total" required className="w-full rounded-xl border border-[var(--border)] bg-[var(--surfaceAlt)] px-3 py-2 text-sm outline-none focus:border-[var(--primary)]" />
-                </div>
-                <div>
-                  <label className="mb-1 block text-xs text-[var(--textSoft)]">Status</label>
-                  <select name="status" className="w-full rounded-xl border border-[var(--border)] bg-[var(--surfaceAlt)] px-3 py-2 text-sm outline-none focus:border-[var(--primary)]">
-                    <option>Paid</option>
-                    <option>Pending</option>
-                    <option>Failed</option>
-                    <option>Refunded</option>
-                  </select>
-                </div>
-                <div className="pt-2">
-                  <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--primary)] px-3 py-2 text-sm font-medium text-[var(--primaryText)] hover:opacity-90">
-                    <Plus className="h-4 w-4" /> Add
-                  </button>
-                </div>
+              <form className="space-y-3" onSubmit={handleAddOrderSubmit}>
+                <div><label className="mb-1 block text-xs text-[var(--textSoft)]">Customer</label><input name="customer" required className="w-full rounded-xl border border-[var(--border)] bg-[var(--surfaceAlt)] px-3 py-2 text-sm outline-none focus:border-[var(--primary)]" /></div>
+                <div><label className="mb-1 block text-xs text-[var(--textSoft)]">Total (USD)</label><input type="number" step="0.01" name="total" required className="w-full rounded-xl border border-[var(--border)] bg-[var(--surfaceAlt)] px-3 py-2 text-sm outline-none focus:border-[var(--primary)]" /></div>
+                <div><label className="mb-1 block text-xs text-[var(--textSoft)]">Status</label><select name="status" className="w-full rounded-xl border border-[var(--border)] bg-[var(--surfaceAlt)] px-3 py-2 text-sm outline-none focus:border-[var(--primary)]"><option>Paid</option><option>Pending</option><option>Failed</option><option>Refunded</option></select></div>
+                <div className="pt-2"><button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--primary)] px-3 py-2 text-sm font-medium text-[var(--primaryText)] hover:opacity-90"><Plus className="h-4 w-4" /> Add</button></div>
               </form>
             </motion.div>
           </motion.div>
-        )}
-      </AnimatePresence>
+      )}</AnimatePresence>
     </div>
   );
 }
