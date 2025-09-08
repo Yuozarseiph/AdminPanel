@@ -9,7 +9,7 @@ Fully responsive, themeable, and ready-to-use as a single component.
 ---
 
 ## 📌 Version
-**v1.0.0** – Initial stable release 🚀
+**v1** – Initial stable release 🚀
 
 ---
 
