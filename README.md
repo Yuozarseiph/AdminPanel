@@ -38,23 +38,28 @@ Recharts  
 Lucide React  
 
 📦 Installation
-Clone the repo and install dependencies:
+Clone the repository:
 
-git clone [https://github.com/](https://github.com/)  <your-user>/<repo-name>.git
+git clone [https://github.com/](https://github.com/)<your-user>/<repo-name>.git
 cd <repo-name>
 
+Install dependencies using your preferred package manager:
+
+# npm
 npm install
-# or
+
+# yarn
 yarn install
-# or
+
+# pnpm
 pnpm install
 
-Required packages:
+Install required peer dependencies:
 
 npm i framer-motion lucide-react recharts
 
 🚀 Usage
-Simply import the component into your Next.js app:
+Simply import the AdminPanel component into your Next.js page. Make sure it's a client component.
 
 "use client";
 import AdminPanel from "@/components/AdminPanel";
@@ -63,19 +68,16 @@ export default function Page() {
   return <AdminPanel title="Yousef Admin" />;
 }
 
-That’s it! 🎉  
-The panel comes with Dashboard, Orders, Customers, Analytics, and Settings out of the box.
+That’s it! 🎉 The panel comes with Dashboard, Orders, Customers, Analytics, and Settings out of the box.
 
 🎨 Theming
-Navigate to the Settings tab  
+Navigate to the Settings tab.
 
-Change colors, shadows, and radius with live preview  
+Change colors, shadows, and radius with a live preview.
 
-Switch between light/dark mode anytime  
+Switch between light/dark mode anytime.
 
-Default themes are defined in:  
-  - defaultLightTheme  
-  - defaultDarkTheme  
+Default themes are defined in defaultLightTheme and defaultDarkTheme.
 
 📸 Screenshots
 
@@ -106,6 +108,8 @@ Default themes are defined in:  
 Deploy easily with Vercel:  
 
 vercel
+
+ 
 
 Or connect your GitHub repo directly.
 
