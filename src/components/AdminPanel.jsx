@@ -40,7 +40,6 @@ import {
   Bar,
 } from "recharts";
 
-/* -------------------------------- THEME (Unchanged) ---------------------------------- */
 const defaultLightTheme = {
   surface: "#ffffff", surfaceAlt: "#f8fafc", surfaceSoft: "#f3f4f6", border: "#e5e7eb", text: "#0b1220",
   textSoft: "#475569", primary: "#3b82f6", primaryText: "#ffffff", accent: "#22c55e", warn: "#f59e0b",
@@ -57,7 +56,6 @@ function applyTheme(vars) {
   return out;
 }
 
-/* ------------------------------ BADGES (Unchanged) ----------------------------------- */
 const StatusBadge = memo(function StatusBadge({ status }) {
   const map = {
     Paid: { bg: "bg-[var(--accent)]/15", text: "text-[var(--accent)]", border: "border-[var(--accent)]/30", Icon: CheckCircle2 },
@@ -76,8 +74,7 @@ const StatusBadge = memo(function StatusBadge({ status }) {
   );
 });
 
-/* --------------------------- SMALL UI HELPERS (Unchanged) ---------------------------- */
-const SortBtn = memo(function SortBtn({ label, active, dir, onClick }) { /* ... no changes ... */
+const SortBtn = memo(function SortBtn({ label, active, dir, onClick }) {
   return (
     <button
       onClick={onClick}
@@ -97,7 +94,7 @@ const SortBtn = memo(function SortBtn({ label, active, dir, onClick }) { /* ... 
   );
 });
 
-const SideLink = memo(function SideLink({ icon: Icon, label, active, onClick }) { /* ... no changes ... */
+const SideLink = memo(function SideLink({ icon: Icon, label, active, onClick }) {
   return (
     <button
       onClick={onClick}
@@ -122,7 +119,7 @@ const SideLink = memo(function SideLink({ icon: Icon, label, active, onClick }) 
   );
 });
 
-const Card = memo(function Card({ title, subtitle, right, children, padded = true, className = "", grow = false }) { /* ... no changes ... */
+const Card = memo(function Card({ title, subtitle, right, children, padded = true, className = "", grow = false }) {
   const shell = [
     "rounded-2xl border border-[var(--border)] bg-[var(--surface)]",
     grow ? "flex h-full flex-col" : "",
@@ -147,7 +144,7 @@ const Card = memo(function Card({ title, subtitle, right, children, padded = tru
   );
 });
 
-const KpiCard = memo(function KpiCard({ title, value, delta, sub }) { /* ... no changes ... */
+const KpiCard = memo(function KpiCard({ title, value, delta, sub }) {
   return (
     <motion.div
       initial={{ y: 8, opacity: 0 }}
@@ -164,7 +161,7 @@ const KpiCard = memo(function KpiCard({ title, value, delta, sub }) { /* ... no 
   );
 });
 
-const EmptyState = memo(function EmptyState({ title="No data", subtitle="There is nothing to show yet.", action=null }) { /* ... no changes ... */
+const EmptyState = memo(function EmptyState({ title="No data", subtitle="There is nothing to show yet.", action=null }) {
   return (
     <div className="flex min-h-[160px] items-center justify-center">
       <div className="text-center">
@@ -176,8 +173,7 @@ const EmptyState = memo(function EmptyState({ title="No data", subtitle="There i
   );
 });
 
-/* ------------------------------- VIEWS (Unchanged structure, logic moved up) ----------------------------------- */
-function usePagination(list, pageSize = 10) { /* ... no changes ... */
+function usePagination(list, pageSize = 10) {
   const [page, setPage] = useState(1);
   const total = list.length;
   const pages = Math.max(1, Math.ceil(total / pageSize));
@@ -189,7 +185,7 @@ function usePagination(list, pageSize = 10) { /* ... no changes ... */
   return { page, setPage, pages, slice, total };
 }
 
-function Pager({ page, pages, onChange }) { /* ... no changes ... */
+function Pager({ page, pages, onChange }) {
   if (pages <= 1) return null;
   return (
     <div className="flex items-center gap-2">
@@ -213,8 +209,6 @@ function Pager({ page, pages, onChange }) { /* ... no changes ... */
     </div>
   );
 }
-
-// NOTE: `filtered` is passed directly now. `orders` is removed.
 function OrdersView({ filtered, q, setQ, sortKey, sortDir, toggleSort, onAddClick }) {
   const [pageSize, setPageSize] = useState(10);
   const { page, setPage, pages, slice, total } = usePagination(filtered, pageSize);
@@ -307,7 +301,6 @@ function OrdersView({ filtered, q, setQ, sortKey, sortDir, toggleSort, onAddClic
   );
 }
 
-// NOTE: Receives `customers` and handlers as props now
 function CustomersView({ customers = [], onAddCustomer, onUpdateCustomer }) {
   const [q, setQ] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
@@ -327,7 +320,7 @@ function CustomersView({ customers = [], onAddCustomer, onUpdateCustomer }) {
       name: String(form.get("name") || ""),
       email: String(form.get("email") || ""),
     };
-    onAddCustomer(newCustomer); // Call prop handler
+    onAddCustomer(newCustomer);
     setModalOpen(false);
   };
 
@@ -374,7 +367,7 @@ function CustomersView({ customers = [], onAddCustomer, onUpdateCustomer }) {
                   <td className="px-4 py-3">
                     <button
                       className="rounded-lg border border-[var(--border)] px-2 py-1 text-xs hover:bg-[var(--surfaceSoft)]"
-                      onClick={() => onUpdateCustomer(c.id, { status: c.status === "Active" ? "Banned" : "Active" })} // Call prop handler
+                      onClick={() => onUpdateCustomer(c.id, { status: c.status === "Active" ? "Banned" : "Active" })}
                     >
                       {c.status === "Active" ? "Ban" : "Unban"}
                     </button>
@@ -422,7 +415,6 @@ function CustomersView({ customers = [], onAddCustomer, onUpdateCustomer }) {
   );
 }
 
-// NOTE: receives chartData from props
 function AnalyticsView({ chartData = [] }) {
   const stacked = chartData.map(d => ({ ...d, returns: Math.max(0, Math.round((d.sales || 0) * 0.15)) }));
   return (
@@ -465,7 +457,7 @@ function AnalyticsView({ chartData = [] }) {
   );
 }
 
-function SettingsView({ themeState, setThemeState, darkThemeState, setDarkThemeState, rootRef }) { /* ... no changes ... */
+function SettingsView({ themeState, setThemeState, darkThemeState, setDarkThemeState, rootRef }) {
   const [localLight, setLocalLight] = useState(themeState);
   const [localDark, setLocalDark] = useState(darkThemeState);
 
@@ -575,17 +567,16 @@ function SettingsView({ themeState, setThemeState, darkThemeState, setDarkThemeS
   );
 }
 
-/* ------------------------------- MAIN (Refactored) ------------------------------------ */
 export default function AdminPanel({
   title = "Yousef Admin",
   theme = {},
   darkTheme = {},
-  // Data props
+
   orders = [],
   customers = [],
   chartData = [],
   kpiData = { sales: { value: "N/A", delta: "", sub: "" }, orders: { value: "N/A", delta: "", sub: "" }, users: { value: "N/A", delta: "", sub: "" }, conversion: { value: "N/A", delta: "", sub: "" } },
-  // Event handlers
+
   onAddOrder = () => console.warn("onAddOrder handler not provided"),
   onAddCustomer = () => console.warn("onAddCustomer handler not provided"),
   onUpdateCustomer = () => console.warn("onUpdateCustomer handler not provided"),
@@ -602,7 +593,7 @@ export default function AdminPanel({
 
   const rootRef = useRef(null);
 
-  useEffect(() => { /* ... theme logic unchanged ... */
+  useEffect(() => {
     const stored = localStorage.getItem("admin-dark");
     if (stored) setDark(stored === "1");
   }, []);
@@ -638,7 +629,7 @@ export default function AdminPanel({
       total: Number(form.get("total")),
       status: String(form.get("status") || "Pending"),
     };
-    onAddOrder(newOrder); // Use the prop handler
+    onAddOrder(newOrder);
     setModalOpen(false);
   };
 
@@ -660,7 +651,6 @@ export default function AdminPanel({
 
   return (
     <div ref={rootRef} className="min-h-screen bg-[var(--surfaceAlt)] text-[var(--text)]" style={vars}>
-      {/* Top Bar */}
       <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[color:oklch(from_var(--surface)/0.85)] backdrop-blur-md"
         style={{ boxShadow: "0 1px 0 0 var(--border)" }}>
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
@@ -677,17 +667,12 @@ export default function AdminPanel({
           </div>
         </div>
       </header>
-
-      {/* Shell */}
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-6 lg:grid-cols-[260px_1fr]">
-        {/* Sidebar */}
         <aside className="hidden h-fit rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-3 lg:block" style={{ boxShadow: "var(--shadow)" }}>
           <nav className="space-y-1">
             {nav.map((item) => <SideLink key={item.key} icon={item.icon} label={item.key} active={section === item.key} onClick={() => setSection(item.key)} />)}
           </nav>
         </aside>
-
-        {/* Content */}
         <main className="space-y-4">
           {section === "Dashboard" && (
             <>
@@ -764,8 +749,6 @@ export default function AdminPanel({
           {section === "Settings" && (<SettingsView themeState={themeState} setThemeState={setThemeState} darkThemeState={darkThemeState} setDarkThemeState={setDarkThemeState} rootRef={rootRef} />)}
         </main>
       </div>
-
-      {/* Sidebar - Mobile */}
       <AnimatePresence>{sidebarOpen && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 bg-black/40 lg:hidden" onClick={() => setSidebarOpen(false)}>
             <motion.aside initial={{ x: -300 }} animate={{ x: 0 }} exit={{ x: -300 }} transition={{ type: "spring", stiffness: 260, damping: 22 }}
@@ -781,8 +764,6 @@ export default function AdminPanel({
             </motion.aside>
           </motion.div>
       )}</AnimatePresence>
-
-      {/* Add Order Modal (global) */}
       <AnimatePresence>{modalOpen && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 grid place-items-center bg-black/40 p-4" onClick={() => setModalOpen(false)}>
             <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
