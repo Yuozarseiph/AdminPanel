@@ -2,8 +2,6 @@
 import "./globals.css";
 import AdminPanel from "../components/AdminPanel";
 import React, { useState, useEffect } from "react";
-
-// داده‌های نمونه که معمولاً از API دریافت می‌شوند
 const sampleChartData = [
   { name: "Jan", sales: 1200, users: 300 }, { name: "Feb", sales: 1800, users: 380 },
   { name: "Mar", sales: 1500, users: 420 }, { name: "Apr", sales: 2200, users: 460 },
@@ -23,9 +21,7 @@ export default function HomePage() {
   const [orders, setOrders] = useState([]);
   const [customers, setCustomers] = useState([]);
 
-  // این useEffect شبیه‌سازی دریافت داده از یک API است
   useEffect(() => {
-    // Fetch initial data from your API here
     const initialOrders = [
       { id: "ORD-1024", customer: "Elena M.", date: "2025-08-30", total: 129.9, status: "Paid" },
       { id: "ORD-1025", customer: "John D.", date: "2025-08-31", total: 59.0, status: "Pending" },
@@ -38,9 +34,7 @@ export default function HomePage() {
     setCustomers(initialCustomers);
   }, []);
 
-  // توابع برای مدیریت تغییرات داده‌ها
   const handleAddOrder = (newOrderData) => {
-    // در یک برنامه واقعی، این تابع یک درخواست API برای افزودن سفارش ارسال می‌کند
     console.log("Adding new order:", newOrderData);
     const newOrder = {
       ...newOrderData,
@@ -72,12 +66,10 @@ export default function HomePage() {
   return (
     <AdminPanel
       title="My E-Commerce"
-      // پاس دادن داده‌ها
       orders={orders}
       customers={customers}
       chartData={sampleChartData}
       kpiData={sampleKpiData}
-      // پاس دادن توابع مدیریت رویداد
       onAddOrder={handleAddOrder}
       onAddCustomer={handleAddCustomer}
       onUpdateCustomer={handleUpdateCustomer}
